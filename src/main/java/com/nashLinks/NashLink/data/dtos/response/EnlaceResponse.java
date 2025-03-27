@@ -13,6 +13,7 @@ public class EnlaceResponse {
     private UUID id;
     private LocalDateTime timestamp;
     private LocalDateTime last_update;
+    private String client_id;
     private String name;
     private String url;
 

@@ -30,6 +30,7 @@ public class EnlaceMapper {
                 .name(enlaceEntidad.getName())
                 .timestamp(enlaceEntidad.getTimestamp())
                 .url(enlaceEntidad.getUrl())
+                .client_id(enlaceEntidad.getClient_id())
                 .build();
     }
 
