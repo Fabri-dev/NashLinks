@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "enlaces")
@@ -13,12 +14,14 @@ import java.time.LocalDateTime;
 public class EnlaceEntidad {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private LocalDateTime timestamp;
 
     private LocalDateTime last_update;
+
+    private String client_id;
 
     private String name;
 

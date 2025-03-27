@@ -1,8 +1,8 @@
 package com.nashLinks.NashLink.data.dtos.response;
-
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Setter
@@ -10,11 +10,12 @@ import java.time.LocalDateTime;
 @Builder
 public class EnlaceResponse {
 
-    private Long id;
+    private UUID id;
     private LocalDateTime timestamp;
     private LocalDateTime last_update;
     private String name;
     private String url;
+
 
     public EnlaceResponse() {}
 

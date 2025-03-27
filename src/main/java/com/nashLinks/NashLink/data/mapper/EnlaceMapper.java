@@ -7,6 +7,7 @@ import com.nashLinks.NashLink.data.dtos.response.EnlaceResponse;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Component
 public class EnlaceMapper {
@@ -15,8 +16,9 @@ public class EnlaceMapper {
 
         return EnlaceEntidad.builder()
                 .url(enlaceRequest.getUrl())
-                .last_update(LocalDateTime.now())
-                .timestamp(LocalDateTime.now())
+                .last_update(LocalDateTime.now(ZoneId.of("America/Argentina/Buenos_Aires")))
+                .timestamp(LocalDateTime.now(ZoneId.of("America/Argentina/Buenos_Aires")))
+                .client_id(enlaceRequest.getClient_id())
                 .name(enlaceRequest.getName())
                 .build();
     }

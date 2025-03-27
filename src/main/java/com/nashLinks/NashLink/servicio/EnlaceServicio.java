@@ -9,7 +9,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 
 @Service
@@ -20,6 +19,7 @@ public class EnlaceServicio {
     public EnlaceServicio(EnlaceRepositorio enlaceRepositorio, EnlaceMapper enlaceMapper) {
         this.enlaceRepositorio = enlaceRepositorio;
         this.enlaceMapper = enlaceMapper;
+
     }
 
     //crear
@@ -27,7 +27,9 @@ public class EnlaceServicio {
     public EnlaceResponse crearUnEnlace(EnlaceRequest enlaceRequest){
 
         EnlaceEntidad enlaceEntidadAGuardar = enlaceMapper.enlaceRequestToEntidad(enlaceRequest);
+
         EnlaceEntidad enlaceEntidadGuardada = enlaceRepositorio.save(enlaceEntidadAGuardar);
+
         return enlaceMapper.enlaceEntidadToResponse(enlaceEntidadGuardada);
     }
 
