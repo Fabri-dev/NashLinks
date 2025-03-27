@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Service
 public class EnlaceServicio {
@@ -35,7 +36,7 @@ public class EnlaceServicio {
 
     //eliminar
 
-    public Boolean eliminarUnEnlace(Long idEnlace){
+    public Boolean eliminarUnEnlace(UUID idEnlace){
 
         if (!enlaceRepositorio.existsById(idEnlace)){
             throw new EntityNotFoundException("Enlace con id: "+ idEnlace +" no encontrado");
@@ -52,7 +53,7 @@ public class EnlaceServicio {
                 .map(enlaceMapper::enlaceEntidadToResponse);
     }
 
-    public EnlaceResponse getUnEnlace(Long idEnlace){
+    public EnlaceResponse getUnEnlace(UUID idEnlace){
 
 
         return enlaceMapper.enlaceEntidadToResponse(enlaceRepositorio.findById(idEnlace)
@@ -63,7 +64,7 @@ public class EnlaceServicio {
 
     //update
 
-    public EnlaceResponse editarUnEnlace(Long idEnlace, EnlaceRequest enlaceRequest){
+    public EnlaceResponse editarUnEnlace(UUID idEnlace, EnlaceRequest enlaceRequest){
 
         EnlaceEntidad enlaceEntidad = enlaceRepositorio.findById(idEnlace)
                 .orElseThrow(()-> new EntityNotFoundException("Enlace con id: "+ idEnlace +" no encontrado"));

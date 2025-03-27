@@ -9,6 +9,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/enlaces")
 public class EnlaceControlador {
@@ -35,7 +37,7 @@ public class EnlaceControlador {
 
     @GetMapping("/{id}")
     public ResponseEntity<EnlaceResponse> obtenerUnEnlace(
-            @PathVariable("id") Long idEnlace
+            @PathVariable("id") UUID idEnlace
     ){
         EnlaceResponse enlaceResponse = enlaceServicio.getUnEnlace(idEnlace);
         return ResponseEntity.ok(enlaceResponse);
@@ -51,7 +53,7 @@ public class EnlaceControlador {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> eliminarUnEnlace(
-            @PathVariable("id") Long idEnlace
+            @PathVariable("id") UUID idEnlace
     ){
         Boolean enlaceEliminado = enlaceServicio.eliminarUnEnlace(idEnlace);
         return ResponseEntity.ok(enlaceEliminado);
@@ -59,7 +61,7 @@ public class EnlaceControlador {
 
     @PutMapping("{id}")
     public ResponseEntity<EnlaceResponse> editarUnEnlace(
-            @PathVariable("id") Long idEnlace,
+            @PathVariable("id") UUID idEnlace,
             @RequestBody EnlaceRequest enlaceReq
     ){
         EnlaceResponse enlaceResponse = enlaceServicio.editarUnEnlace(idEnlace,enlaceReq);
